@@ -16,7 +16,7 @@ public class FormBoat extends JFrame{
 	 */
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
-	private Boat boat;
+	private IBoat sail;
 
 	/**
 	 * Launch the application.
@@ -38,8 +38,8 @@ public class FormBoat extends JFrame{
 	public void paint(Graphics g) {
 		super.paint(g);
 		try {
-			if (boat != null) {
-				boat.DrawBoat(g);
+			if (sail != null) {
+				sail.DrawSail(g);
 			}
 		} catch (Exception ex) {
 
@@ -51,16 +51,16 @@ public class FormBoat extends JFrame{
 			String name = sender.getToolTipText();
 			switch (name) {
 			case "Up":
-				boat.MoveBoat(Direction.Up);
+				sail.MoveTransport(Direction.Up);
 				break;
 			case "Down":
-				boat.MoveBoat(Direction.Down);
+				sail.MoveTransport(Direction.Down);
 				break;
 			case "Left":
-				boat.MoveBoat(Direction.Left);
+				sail.MoveTransport(Direction.Left);
 				break;
 			case "Right":
-				boat.MoveBoat(Direction.Right);
+				sail.MoveTransport(Direction.Right);
 				break;
 			}
 			this.repaint();
@@ -87,11 +87,11 @@ public class FormBoat extends JFrame{
 		contentPane.add(panel);
 		panel.setLayout(null);
 		
-		JButton btnCreate = new JButton("Create");
+		JButton btnCreate = new JButton("\u0421\u043E\u0437\u0434\u0430\u0442\u044C \u043F\u0430\u0440\u0443\u0441\u043D\u0438\u043A");
 		btnCreate.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				try {
-					boat = new Boat(100 + (int) (Math.random() * 300), 1000 + (int) (Math.random() * 2000),
+					sail = new Boat(100 + (int) (Math.random() * 300), 1000 + (int) (Math.random() * 2000),
 							Color.BLACK, Color.BLUE, true, true);
 				} catch (Exception e) {
 					
@@ -99,7 +99,7 @@ public class FormBoat extends JFrame{
 				}
 
 				try {
-					boat.SetPosition(70 + (int) (Math.random() * 160), 70 + (int) (Math.random() * 160),
+					sail.SetPosition(70 + (int) (Math.random() * 160), 70 + (int) (Math.random() * 160),
 							FormBoat.this.getWidth(), FormBoat.this.getHeight());
 				} catch (Exception e) {
 					
@@ -111,7 +111,7 @@ public class FormBoat extends JFrame{
 			}
 		});
 		
-		btnCreate.setBounds(10, 11, 89, 23);
+		btnCreate.setBounds(10, 11, 175, 23);
 		panel.add(btnCreate);
 		
 		JButton btnUp = new JButton("");
@@ -157,5 +157,28 @@ public class FormBoat extends JFrame{
 		});
 		btnRight.setBounds(824, 424, 30, 30);
 		panel.add(btnRight);
+		
+		JButton btnSail = new JButton("\u0421\u043E\u0437\u0434\u0430\u0442\u044C \u043B\u043E\u0434\u043A\u0443");
+		btnSail.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {				
+	            try {
+					sail = new Sail(100 + (int) (Math.random() * 300), 1000 + (int) (Math.random() * 2000), Color.DARK_GRAY);
+				} catch (Exception e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+	            
+	            try {
+					sail.SetPosition(70 + (int) (Math.random() * 160), 70 + (int) (Math.random() * 160), FormBoat.this.getWidth(), FormBoat.this.getHeight());					
+				} catch (Exception e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+	            
+	            FormBoat.this.repaint();
+			}
+		});
+		btnSail.setBounds(10, 40, 175, 23);
+		panel.add(btnSail);
 	}
 }

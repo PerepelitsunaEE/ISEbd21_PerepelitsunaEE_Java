@@ -2,7 +2,6 @@ import java.awt.Color;
 import java.awt.Graphics;
 
 public class Boat extends Sail{
-
     public Color DopColor;
     public Color getDopColor() {
 		return DopColor;
@@ -41,7 +40,7 @@ public class Boat extends Sail{
         }
         if (LeftSail)
         {
-        	g.setColor(DopColor);
+        	  g.setColor(DopColor);
             g.drawLine((int)_startPosX + 45, (int)_startPosY + 40, (int)_startPosX + 45, (int)_startPosY);
             g.drawLine((int)_startPosX + 45, (int)_startPosY, (int)_startPosX + 20, (int)_startPosY + 40);
         }

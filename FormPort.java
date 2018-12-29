@@ -10,7 +10,7 @@ import java.awt.event.ActionListener;
 
 public class FormPort extends JFrame {
 	/**
-	 * 
+	 *
 	 */
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
@@ -77,13 +77,13 @@ public class FormPort extends JFrame {
 				"\u0414\u043E\u0431\u0430\u0432\u0438\u0442\u044C \u043F\u0430\u0440\u0443\u0441\u043D\u0438\u043A");
 		buttonSetBoat.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				Color firstColor = JColorChooser.showDialog(null, "Выберите основной цвет", Color.black);
-				Color secondColor = JColorChooser.showDialog(null, "Выберите дополнительный цвет", Color.ORANGE);
+				Color firstColor = JColorChooser.showDialog(null, "пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ", Color.black);
+				Color secondColor = JColorChooser.showDialog(null, "пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ", Color.ORANGE);
 				sail = new Boat(100 + (int) (Math.random() * 300), 1000 + (int) (Math.random() * 2000), firstColor,
 						secondColor, true, true);
 				int place = parking.getAt(list.getSelectedIndex()).addTransport(sail);
 				if (place == -1) {
-					JOptionPane.showMessageDialog(null, "Нет свободных мест");
+					JOptionPane.showMessageDialog(null, "пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ");
 				}
 				panelPort.repaint();
 			}
@@ -95,11 +95,11 @@ public class FormPort extends JFrame {
 				"\u0414\u043E\u0431\u0430\u0432\u0438\u0442\u044C \u043B\u043E\u0434\u043A\u0443");
 		buttonSetSail.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				Color firstColor = JColorChooser.showDialog(null, "Выберите основной цвет", Color.blue);
+				Color firstColor = JColorChooser.showDialog(null, "пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ", Color.blue);
 				sail = new Sail(100 + (int) (Math.random() * 300), 1000 + (int) (Math.random() * 2000), firstColor);
 				int place = parking.getAt(list.getSelectedIndex()).addTransport(sail);
 				if (place == -1) {
-					JOptionPane.showMessageDialog(null, "Нет свободных мест");
+					JOptionPane.showMessageDialog(null, "пїЅпїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ пїЅпїЅпїЅпїЅ");
 				}
 				panelPort.repaint();
 			}

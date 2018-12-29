@@ -3,9 +3,9 @@ import javax.swing.*;
 import java.awt.*;
 
 public class JPanelPort extends JPanel{
-		
+
 	/**
-	 * 
+	 *
 	 */
 	private static final long serialVersionUID = 1L;
 
@@ -13,11 +13,11 @@ public class JPanelPort extends JPanel{
 
 	@SuppressWarnings("rawtypes")
 	private JList list;
-	
+
 	public void setPort(MultiLevelPort port) {
 		this.port = port;
 	}
-	
+
 	@SuppressWarnings("rawtypes")
 	public void setList(JList list) {
 		this.list = list;

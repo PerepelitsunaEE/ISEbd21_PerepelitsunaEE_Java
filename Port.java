@@ -1,9 +1,11 @@
-import java.util.ArrayList;
+
+import java.util.*;
 import java.awt.Color;
 import java.awt.Graphics;
 
 public class Port<T extends IBoat> {
-	ArrayList<T> _places;
+
+	HashMap<Integer, T> _places;
 
 	private int _pictureWidth;
 
@@ -13,20 +15,23 @@ public class Port<T extends IBoat> {
 
 	private int _placeSizeHeight = 110;
 
-	public Port(int size, int pictureWidth, int pictureHeight) {
-		_places = new ArrayList<T>(size);
+	private int _maxCount;
+
+	public Port(int sizes, int pictureWidth, int pictureHeight) {
+		_maxCount = sizes;
+		_places = new HashMap<Integer, T>(sizes);
 		this._pictureWidth = pictureWidth;
 		this._pictureHeight = pictureHeight;
-		for (int i = 0; i < size; i++) {
-			_places.add(null);
-		}
 	}
 
 	public int addTransport(T transport) {
-		for (int i = 0; i < _places.size(); i++) {
+		if (_places.size() == _maxCount) {
+			return -1;
+		}
+		for (int i = 0; i < _maxCount; i++) {
 			if (checkFreePlace(i)) {
-				_places.add(i, transport);
-				_places.get(i).SetPosition(5 + i / 5 * _placeSizeWidth + 5, i % 5 * _placeSizeHeight + 40,
+				_places.put(i, transport);
+				_places.get(i).SetPosition(10 + i / 5 * _placeSizeWidth + 5, i % 5 * _placeSizeHeight + 40,
 						_pictureWidth, _pictureHeight);
 				return i;
 			}
@@ -35,34 +40,29 @@ public class Port<T extends IBoat> {
 	}
 
 	public T removeTransport(int index) {
-		if (index < 0 || index > _places.size()) {
-			return null;
-		}
 		if (!checkFreePlace(index)) {
-			T ship = _places.get(index);
-			_places.set(index, null);
-			return ship;
+			T bus = _places.get(index);
+			_places.remove(index);
+			return bus;
 		}
 		return null;
 	}
 
 	private boolean checkFreePlace(int index) {
-		return _places.get(index) == null;
+		return !_places.containsKey(index);
 	}
 
 	public void Draw(Graphics g) {
 		DrawMarking(g);
-		for (int i = 0; i < _places.size(); i++) {
-			if (!checkFreePlace(i)) {
-				_places.get(i).DrawSail(g);
-			}
+		for (T i : _places.values()) {
+			i.DrawSail(g);
 		}
 	}
 
 	private void DrawMarking(Graphics g) {
 		g.setColor(Color.BLACK);
-		g.drawRect(0, 0, (_places.size() / 5) * _placeSizeWidth, 550);
-		for (int i = 0; i < _places.size() / 5; i++) {
+		g.drawRect(0, 0, (_maxCount / 5) * _placeSizeWidth, 550);
+		for (int i = 0; i < _maxCount / 5; i++) {
 			for (int j = 0; j < 6; ++j) {
 				g.drawLine(i * _placeSizeWidth, j * _placeSizeHeight, i * _placeSizeWidth + 110, j * _placeSizeHeight);
 			}

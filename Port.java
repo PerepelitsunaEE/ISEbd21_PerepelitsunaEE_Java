@@ -6,15 +6,10 @@ import java.awt.Graphics;
 public class Port<T extends IBoat> {
 
 	HashMap<Integer, T> _places;
-
 	private int _pictureWidth;
-
 	private int _pictureHeight;
-
 	private int _placeSizeWidth = 210;
-
 	private int _placeSizeHeight = 110;
-
 	private int _maxCount;
 
 	public Port(int sizes, int pictureWidth, int pictureHeight) {

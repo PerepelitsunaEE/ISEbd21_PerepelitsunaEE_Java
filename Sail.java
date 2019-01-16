@@ -2,35 +2,17 @@ import java.awt.Color;
 import java.awt.Graphics;
 
 public class Sail extends SimpleSail{
-	
+
     protected final int boatWidth = 100;
     protected final int boatHeight = 60;
-    
+
     public Sail(int maxSpeed, float weight, Color mainColor)
     {
         __MaxSpeed = maxSpeed;
         __Weight = weight;
         __MainColor = mainColor;
     }
-    
-    public Color DopColor;
-    public Color getDopColor() {
-		return DopColor;
-	}
 
-	public void setDopColor(Color value) {
-		DopColor = value;
-	}
-	
-    public boolean RightSail;
-    public boolean getRightSail (){
-    	return RightSail;
-    }
-    public boolean LeftSail;
-    public boolean getLeftSail (){
-    	return LeftSail;
-    }
-    
     @Override
     public void MoveTransport(Direction direction)
     {

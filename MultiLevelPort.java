@@ -5,7 +5,8 @@ public class MultiLevelPort {
 
 	ArrayList<Port<IBoat>> parkingStages;
 
-	private final int countPlaces = 20;
+	private final int countPlaces = 15;
+	int currentLevel;
 
 	public MultiLevelPort(int countStages, int pictureWidth, int pictureHeight) {
 		parkingStages = new ArrayList<Port<IBoat>>();
@@ -19,5 +20,18 @@ public class MultiLevelPort {
 			return parkingStages.get(index);
 		}
 		return null;
+	}
+	public int getCurrentLevel() {
+		return currentLevel;
+	}
+
+	public void levelUp() {
+		if (currentLevel + 1 < parkingStages.size())
+			currentLevel++;
+	}
+
+	public void levelDown() {
+		if (currentLevel > 0)
+			currentLevel--;
 	}
 }

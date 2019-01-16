@@ -30,6 +30,7 @@ public class Boat extends Sail{
         RightSail = rightSail;
         LeftSail = leftSail;
     }
+    @Override
     public void DrawSail(Graphics g)
     {
         super.DrawSail(g);

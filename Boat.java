@@ -2,7 +2,7 @@ import java.awt.Color;
 import java.awt.Graphics;
 
 public class Boat extends Sail{
-	
+  
     public Color DopColor;
     public Color getDopColor() {
 		return DopColor;
@@ -11,7 +11,6 @@ public class Boat extends Sail{
 	public void setDopColor(Color value) {
 		DopColor = value;
 	}
-	
     public boolean RightSail;
     public boolean getRightSail (){
     	return RightSail;
@@ -20,9 +19,10 @@ public class Boat extends Sail{
     public boolean getLeftSail (){
     	return LeftSail;
     }
-    
+  
     public Boat (int maxSpeed, float weight, Color mainColor, Color dopColor, boolean rightSail, boolean leftSail)
     {	super(maxSpeed, weight, mainColor);    
+
         __MaxSpeed = maxSpeed;
         __Weight = weight;
         __MainColor = mainColor;

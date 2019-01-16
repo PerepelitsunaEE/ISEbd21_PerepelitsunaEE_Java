@@ -12,7 +12,6 @@ public class Sail extends SimpleSail{
         __Weight = weight;
         __MainColor = mainColor;
     }
-    
     @Override
     public void MoveTransport(Direction direction)
     {

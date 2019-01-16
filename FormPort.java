@@ -2,7 +2,6 @@
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.LineBorder;
-
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -22,7 +21,6 @@ public class FormPort extends JFrame {
 	private final int countLevel = 5;
 	SailConfig select;
 	private String[] elements = new String[6];
-
 	/**
 	 * Launch the application.
 	 */
@@ -51,7 +49,6 @@ public class FormPort extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-
 		JPanelPort panelParking = new JPanelPort();
 		panelParking.setBounds(10, 11, 634, 541);
 		contentPane.add(panelParking);
@@ -95,6 +92,7 @@ public class FormPort extends JFrame {
 		panelGroupElements.setBorder(new LineBorder(new Color(0, 0, 0)));
 		panelGroupElements.setBackground(SystemColor.control);
 		panelGroupElements.setBounds(654, 359, 206, 190);
+
 		contentPane.add(panelGroupElements);
 		panelGroupElements.setLayout(null);
 
@@ -139,7 +137,7 @@ public class FormPort extends JFrame {
 		textField.setBounds(60, 11, 136, 20);
 		panelGroupElements.add(textField);
 		textField.setColumns(10);
-
+    
 		JButton btnAdd = new JButton("\u0414\u043E\u0431\u0430\u0432\u0438\u0442\u044C");
 		btnAdd.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {

@@ -4,11 +4,10 @@ import java.util.ArrayList;
 public class MultiLevelPort {
 
 	ArrayList<Port<IBoat>> parkingStages;
-
 	private final int countPlaces = 15;
 	int currentLevel;
 
-	public MultiLevelPort(int countStages, int pictureWidth, int pictureHeight) {
+  public MultiLevelPort(int countStages, int pictureWidth, int pictureHeight) {
 		parkingStages = new ArrayList<Port<IBoat>>();
 		for (int i = 0; i < countStages; ++i) {
 			parkingStages.add(new Port<IBoat>(countPlaces, pictureWidth, pictureHeight));

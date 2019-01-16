@@ -9,7 +9,7 @@ import java.awt.event.ActionListener;
 
 public class FormPort extends JFrame {
 	/**
-	 * 
+	 *
 	 */
 	private static final long serialVersionUID = 1L;
 	JFrame frame;
@@ -59,7 +59,7 @@ public class FormPort extends JFrame {
 		list = new JList(elements);
 		list.setBounds(654, 11, 168, 107);
 		contentPane.add(list);
-		
+
 		JButton btnLevelDown = new JButton("");
 		btnLevelDown.setIcon(new ImageIcon("C:\\Users\\\u0415\u043A\u0430\u0442\u0435\u0440\u0438\u043D\u0430\\Documents\\\u0423\u0447\u0435\u0431\u0430\\2 \u043A\u0443\u0440\u0441\\\u0422\u0435\u0445\u043D\u043E\u043B\u043E\u0433\u0438\u0438 \u043F\u0440\u043E\u0433\u0440\u0430\u043C\u043C\u0438\u0440\u043E\u0432\u0430\u043D\u0438\u044F\\\u041B\u0430\u0431\u044B\\Java\\Down.png"));
 		btnLevelDown.addActionListener(new ActionListener() {

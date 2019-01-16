@@ -2,17 +2,17 @@ import java.awt.Color;
 import java.awt.Graphics;
 
 public class Sail extends SimpleSail{
-	
+
     protected final int boatWidth = 100;
     protected final int boatHeight = 60;
-    
+
     public Sail(int maxSpeed, float weight, Color mainColor)
     {
         __MaxSpeed = maxSpeed;
         __Weight = weight;
         __MainColor = mainColor;
     }
-    
+
     @Override
     public void MoveTransport(Direction direction)
     {

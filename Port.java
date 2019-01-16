@@ -1,0 +1,67 @@
+
+import java.util.*;
+import java.awt.Color;
+import java.awt.Graphics;
+
+public class Port<T extends IBoat> {
+
+	HashMap<Integer, T> _places;
+	private int _pictureWidth;
+	private int _pictureHeight;
+	private int _placeSizeWidth = 210;
+	private int _placeSizeHeight = 110;
+	private int _maxCount;
+
+	public Port(int sizes, int pictureWidth, int pictureHeight) {
+		_maxCount = sizes;
+		_places = new HashMap<Integer, T>(sizes);
+		this._pictureWidth = pictureWidth;
+		this._pictureHeight = pictureHeight;
+	}
+
+	public int addTransport(T transport) {
+		if (_places.size() == _maxCount) {
+			return -1;
+		}
+		for (int i = 0; i < _maxCount; i++) {
+			if (checkFreePlace(i)) {
+				_places.put(i, transport);
+				_places.get(i).SetPosition(10 + i / 5 * _placeSizeWidth + 5, i % 5 * _placeSizeHeight + 40,
+						_pictureWidth, _pictureHeight);
+				return i;
+			}
+		}
+		return -1;
+	}
+
+	public T removeTransport(int index) {
+		if (!checkFreePlace(index)) {
+			T bus = _places.get(index);
+			_places.remove(index);
+			return bus;
+		}
+		return null;
+	}
+
+	private boolean checkFreePlace(int index) {
+		return !_places.containsKey(index);
+	}
+
+	public void Draw(Graphics g) {
+		DrawMarking(g);
+		for (T i : _places.values()) {
+			i.DrawSail(g);
+		}
+	}
+
+	private void DrawMarking(Graphics g) {
+		g.setColor(Color.BLACK);
+		g.drawRect(0, 0, (_maxCount / 5) * _placeSizeWidth, 550);
+		for (int i = 0; i < _maxCount / 5; i++) {
+			for (int j = 0; j < 6; ++j) {
+				g.drawLine(i * _placeSizeWidth, j * _placeSizeHeight, i * _placeSizeWidth + 110, j * _placeSizeHeight);
+			}
+			g.drawLine(i * _placeSizeWidth, 0, i * _placeSizeWidth, 550);
+		}
+	}
+}

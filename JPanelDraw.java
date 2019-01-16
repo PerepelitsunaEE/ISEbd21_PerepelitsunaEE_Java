@@ -2,6 +2,10 @@ import javax.swing.*;
 import java.awt.*;
 
 public class JPanelDraw extends JPanel {
+	
+	/**
+	 * 
+	 */
 	private static final long serialVersionUID = 1L;
 	private IBoat sail;
 
